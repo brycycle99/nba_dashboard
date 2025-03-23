@@ -24,6 +24,14 @@ Data is fetched using the [NBA Stats API](https://github.com/swar/nba_api), and 
 
 ---
 
+## 🧪 Requirements
+
+-streamlit
+-nba_api
+-numpy
+-plotly
+-matplotlib
+
 ## 🚀 How to Run
 
 ### On Streamlit Cloud (Recommended)
@@ -42,3 +50,5 @@ pip install -r requirements.txt
 
 # Step 3: Run the app
 streamlit run streamlit_app.py
+
+
