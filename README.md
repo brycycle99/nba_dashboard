@@ -26,14 +26,6 @@ Visualize shot attempt densities on an interactive NBA court, using data fetched
 
 ## 🚧 Upcoming Apps
 
-Planned additions to the dashboard include:
-
-- 📈 **Player Efficiency Analyzer**  
-- 🧮 **Team Stats Comparisons (Radar Charts, Trends)**  
-- 🔁 **Trade Analyzer / Impact Visualizer**  
-- 📊 **Game-by-Game Heatmaps**  
-- 🧠 **Machine Learning Player Clustering (K-Means, t-SNE)**
-
 Stay tuned as new tools roll out!
 
 ---
