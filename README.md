@@ -56,5 +56,5 @@ streamlit run streamlit_app.py
 
 - NBA Stats API sometimes throttles or returns empty data—refresh or retry if needed.
 - Pull requests and issues are welcome!
-- Credit to JP Hwang's [blog post](https://www.jphwang.com/posts/interactive-basketball-data-visualizations-with-plotly/) for inspiration and plotting logic!
+- Credit to JP Hwang's [blog post](https://www.jphwang.com/posts/interactive-basketball-data-visualizations-with-plotly/) for inspiration and plotly court logic!
 
