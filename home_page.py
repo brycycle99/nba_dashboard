@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("🏀 NBA Shot Chart & Analytics Dashboard")
+st.title("🏀 Interactive NBA Data Analysis and Visualization")
 st.markdown("""
 ## Welcome to the NBA Dashboard!  
 ⬅️ Use the sidebar to explore visualizations and analytics tools:
