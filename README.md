@@ -1,4 +1,4 @@
-# 🏀 NBA Shot Chart Visualizer
+# 🏀 Interactive NBA Shot Chart Visualizer
 
 This Streamlit web application allows you to explore NBA shot chart data for different seasons. You can visualize shot attempt densities across the court for:
 
