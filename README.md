@@ -56,14 +56,14 @@ Just click the **"Deploy to Streamlit"** button or upload this repo to [https://
 
 ```bash
 # Step 1: Clone the repo
-git clone https://github.com/your-username/nba-shot-chart.git
-cd nba-shot-chart
+git clone https://github.com/your-username/nba_dashboard.git
+cd nba_dashboard
 
 # Step 2: Install dependencies
 pip install -r requirements.txt
 
 # Step 3: Run the app
-streamlit run streamlit_app.py
+streamlit run nba_dashboard.py
 ```
 
 ## ⚠️ Notes
