@@ -24,12 +24,6 @@ Visualize shot attempt densities on an interactive NBA court, using data fetched
 
 ---
 
-## 🚧 Upcoming Apps
-
-Stay tuned as new tools roll out!
-
----
-
 ## 🧪 Requirements
 
 - `streamlit`
@@ -63,4 +57,5 @@ streamlit run nba_dashboard.py
 - NBA Stats API sometimes throttles or returns empty data—refresh or retry if needed.
 - Pull requests and issues are welcome!
 - Credit to JP Hwang's [blog post](https://www.jphwang.com/posts/interactive-basketball-data-visualizations-with-plotly/) for inspiration and plotly court logic!
+- Stay tuned as new tools roll out!
 
