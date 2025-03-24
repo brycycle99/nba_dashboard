@@ -1,26 +1,40 @@
-# 🏀 Interactive NBA Shot Chart Visualizer
+# 🏀 NBA Analytics Dashboard (Streamlit)
 
-This Streamlit web application allows you to explore NBA shot chart data for different seasons. You can visualize shot attempt densities across the court for:
+Welcome to the **NBA Analytics Dashboard**, a Streamlit-powered platform for interactive visual exploration of NBA data.
 
-- The entire league  
-- Specific NBA teams  
-- Individual players  
-
-Data is fetched using the [NBA Stats API](https://github.com/swar/nba_api), and visualized using [Plotly](https://plotly.com/python/), with a custom-drawn NBA half-court background.
+This dashboard will host multiple data analysis tools and visualizations related to NBA player performance, team trends, and league-wide insights.
 
 ---
 
-## 🔧 Features
+## 📌 Current Apps
 
+### 1. 🔥 Shot Chart Visualizer
+
+Visualize shot attempt densities on an interactive NBA court, using data fetched from the official NBA Stats API. Explore how different players, teams, and the league overall shoot from various areas on the court.
+
+#### Features:
 - 📅 **Season Selector**: Choose from NBA seasons 1996–2024  
 - 🏆 **Season Type**: Regular Season or Playoffs  
-- 🎯 **Modes**:
-  - **League-wide**: See where shots are attempted most across the entire NBA
-  - **Team**: View shot distributions by team
-  - **Player**: Dive into individual player shot tendencies
+- 🧍 **Modes**:
+  - **League-wide**: Aggregate shot attempts for all players
+  - **Team**: Filter shot data by NBA team
+  - **Player**: Zoom in on individual player shot charts
+- 🧊 **Hexbin Shot Map**: View shot frequency with hover details  
+- 🏟️ **Custom Half-Court**: Accurately scaled court background using Plotly
 
-- 🧊 **Hexbin Shot Map**: See shot attempt frequency using hexagonal binning with hover info  
-- 🏟️ **Accurate Court Rendering**: Full half-court visual using Plotly shapes  
+---
+
+## 🚧 Upcoming Apps
+
+Planned additions to the dashboard include:
+
+- 📈 **Player Efficiency Analyzer**  
+- 🧮 **Team Stats Comparisons (Radar Charts, Trends)**  
+- 🔁 **Trade Analyzer / Impact Visualizer**  
+- 📊 **Game-by-Game Heatmaps**  
+- 🧠 **Machine Learning Player Clustering (K-Means, t-SNE)**
+
+Stay tuned as new tools roll out!
 
 ---
 
