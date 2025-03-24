@@ -26,7 +26,6 @@ def draw_plotly_court(fig, fig_width=600, margins=10):
     fig_height = fig_width * (470 + 2 * margins) / (500 + 2 * margins)
     fig.update_layout(width=fig_width, height=fig_height)
 
-    # Set axes ranges
     fig.update_xaxes(range=[-250 - margins, 250 + margins])
     fig.update_yaxes(range=[-52.5 - margins, 417.5 + margins])
 
@@ -35,7 +34,6 @@ def draw_plotly_court(fig, fig_width=600, margins=10):
     main_line_col = "#777777"
 
     fig.update_layout(
-        # Line Horizontal
         margin=dict(l=20, r=20, t=20, b=20),
         paper_bgcolor="white",
         plot_bgcolor="white",
@@ -173,16 +171,11 @@ def draw_plotly_court(fig, fig_width=600, margins=10):
 
 def plot_data(data):
 
-    # Pull coordinates and made/missed
     x = data['LOC_X'].values
     y = data['LOC_Y'].values
-    #made = leaguewide_df['SHOT_MADE_FLAG'].values
 
-
-    # Create hexbin bins (gridsize controls resolution)
     gridsize = (30)
 
-    # Use a single hexbin for attempts
     hb_attempts = plt.hexbin(x, y, gridsize=gridsize, cmap='gray')
     coords = hb_attempts.get_offsets()
     plt.close()
@@ -196,20 +189,16 @@ def plot_data(data):
     coords = coords[mask]
     attempts = attempts[mask]
     total_attempts = attempts.sum()
-    # log_attempts = np.log10(attempts)
 
     attempt_freq = np.nan_to_num((attempts / total_attempts))
     customdata = np.stack((attempts, attempt_freq), axis=1)
     colorscale = [
         [0.0, 'rgba(0, 0, 250, .00001)'], 
-        [0.25, 'rgba(0, 0, 250, .1)'], # Very transparent light blue
-        [0.5, 'rgba(0, 0, 250, .5)'],  # Semi-transparent medium blue
+        [0.25, 'rgba(0, 0, 250, .1)'],
+        [0.5, 'rgba(0, 0, 250, .5)'],  
         [1.0, 'rgba(0, 0, 250, 1.0)']   
     ]
-    # x_min = np.floor(np.min(log_attempts))
-    # x_max = np.ceil(np.max(log_attempts))
-    # tickvals = list(np.arange(x_min, x_max + 1))
-    # ticktext = [f"10^{int(v)}" for v in tickvals]
+
     fig.add_trace(
         go.Scatter(
             x=coords[:, 0],
@@ -222,16 +211,12 @@ def plot_data(data):
                 showscale=True,
                 colorbar=dict(
                     title='Attempts',
-                    # tickvals=tickvals,
-                    # ticktext=ticktext
                 ),
                 line=dict(width=0),
                 sizemode='diameter',
                 symbol='hexagon',
-                # cmin=np.min(log_attempts),
-                # cmax=np.max(log_attempts),
                 cmin = 0,    
-                cmax = np.percentile(attempts, 90) 
+                cmax = safe_percentile(attempts, 90)
             ),
             hovertemplate=
                 'Attempts: %{customdata[0]}<br>' +
@@ -243,7 +228,11 @@ def plot_data(data):
 
     st.plotly_chart(fig, use_container_width=True, config=dict(displayModeBar=False))
     
-
+def safe_percentile(arr, q, default=None):
+    try:
+        return np.percentile(arr, q)
+    except Exception:
+        return default
 
 def get_player_id(name):
     player_id = [player for player in players_dict if player['full_name']==name][0]['id']
@@ -274,19 +263,13 @@ draw_plotly_court(fig)
 
 st.title('Shot Chart')
 
-
-
-#if mode_select:
-
 seasons = [f"{year}-{str(year+1)[-2:]}" for year in range(1996, 2025)]
 season_year = st.selectbox('Select season:', seasons, placeholder='Choose an option', index=None)
 season_type = st.selectbox('Select season type:', ['Regular Season', 'Playoffs'], placeholder='Choose an option', index=None)
 mode_select = st.selectbox('Select viewing mode:', ['League-wide', 'Team', 'Player'], placeholder='Choose an option', index=None)
+
 if (mode_select == 'League-wide') and season_year and season_type:
     all_shots_df = req_ShotChartDetail(0, 0, season_year, season_type)
-    # all_shots_df['Year'] = all_shots_df['GAME_DATE'].astype(str).str[:4].astype(int)
-    # all_shots_df['Month'] = all_shots_df['GAME_DATE'].astype(str).str[4:6].astype(int)
-    # all_shots_df['Day'] = all_shots_df['GAME_DATE'].astype(str).str[6:8].astype(int)
     plot_data(all_shots_df)
     
 
@@ -304,17 +287,6 @@ if (mode_select == 'Player') and season_year and season_type:
         all_shots_df = req_ShotChartDetail(player_id, 0, season_year, season_type)
         plot_data(all_shots_df)
 
-# if (mode_select == 'Team') and (playoffs or reg_season):
-#     team_name = st.selectbox('Select team:', team_list, placeholder='Choose an option', index=None)
-#     if team_name:
-#         team_df = all_shots_df[(all_shots_df['TEAM_NAME']==team_name) & (all_shots_df['Year'].between(year_span[0], year_span[1]))]
-#         plot_data(team_df)
-
-# if (mode_select == 'Player') and (playoffs or reg_season): 
-#     player_name = st.selectbox('Select player', player_list, placeholder='Choose an option', index=None)
-#     if player_name:
-#         player_df = all_shots_df[all_shots_df['PLAYER_NAME']==player_name]
-#         plot_data(player_df)
 
 
 
