@@ -3,3 +3,8 @@ nba_api
 plotly
 numpy
 matplotlib
+pandas
+scikit-learn
+umap-learn
+seaborn
+scipy
