@@ -13,14 +13,23 @@ This dashboard will host multiple data analysis tools and visualizations related
 Visualize shot attempt densities on an interactive NBA court, using data fetched from the official NBA Stats API. Explore how different players, teams, and the league overall shoot from various areas on the court.
 
 #### Features:
-- 📅 **Season Selector**: Choose from NBA seasons 1996–2024  
-- 🏆 **Season Type**: Regular Season or Playoffs  
-- 🧍 **Modes**:
+- **Season Selector**: Choose from NBA seasons 1996–2024  
+- **Season Type**: Regular Season or Playoffs  
+- **Modes**:
   - **League-wide**: Aggregate shot attempts for all players
   - **Team**: Filter shot data by NBA team
   - **Player**: Zoom in on individual player shot charts
-- 🧊 **Hexbin Shot Map**: View shot frequency with hover details  
-- 🏟️ **Custom Half-Court**: Accurately scaled court background using Plotly
+- **Hexbin Shot Map**: View shot frequency with hover details  
+- **Custom Half-Court**: Accurately scaled court background using Plotly
+
+### 2. ⛹️‍♂️ Player Clustering Analysis
+
+Analyze player playstyles through unsupervised machine learning, using a data set consisting of play-type frequency, average shot distance, and per 36 minute statistics.
+
+#### Features:
+- **Kmeans Cluster Selection***: Tune how many clusters to apply to the machine learning algorithm
+- **Dimensionality Reduction Technique Selection**: Choose between PCA, tSNE, and UMAP dimensionality reduction for player mapping
+- **Feature Heatmap**: See which features stand out in each cluster, in order to contextualize Kmeans and clustering results.
 
 ---
 
@@ -32,11 +41,11 @@ Visualize shot attempt densities on an interactive NBA court, using data fetched
 - `plotly`
 - `matplotlib`
 
-## 🚀 How to Run
+## 🚀 How to Use
 
 ### On Streamlit Cloud (Recommended)
 
-Just click the **"Deploy to Streamlit"** button or upload this repo to [https://streamlit.io/cloud](https://streamlit.io/cloud). It will automatically detect `streamlit_app.py` and install dependencies from `requirements.txt`.
+Visit the app hosted via the Streamlit Cloud at this [link](https://nbadatasci.streamlit.app/)
 
 ### Run Locally
 
