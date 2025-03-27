@@ -33,14 +33,6 @@ Analyze player playstyles through unsupervised machine learning, using a data se
 
 ---
 
-## 🧪 Requirements
-
-- `streamlit`
-- `nba_api`
-- `numpy`
-- `plotly`
-- `matplotlib`
-
 ## 🚀 How to Use
 
 ### On Streamlit Cloud (Recommended)
