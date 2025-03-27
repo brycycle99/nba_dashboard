@@ -10,4 +10,13 @@ st.markdown("""
   - View individual player shot maps  
   - Compare shooting zones (e.g., paint, midrange, 3PT)  
   - Filter by team, season, or game
+            
+- ⛹️‍♂️ **Player Clustering Analysis**
+  Redefine player roles on the basketball court using unsupervised machine learning.
+  - Map players based on play-type frequency, average shot distance, and per 36 minute statistics
+  - Tune how many clusters to apply to the machine learning algorithm
+  - Choose between PCA, tSNE, and UMAP dimensionality reduction for player mapping
+  - See which features stand out in each cluster, in order to contextualize Kmeans and clustering results
 """)
+
+
