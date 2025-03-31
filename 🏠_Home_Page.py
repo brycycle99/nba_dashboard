@@ -11,6 +11,7 @@ st.markdown("""
   - Tune how many clusters to apply to the machine learning algorithm
   - Choose between PCA, tSNE, and UMAP dimensionality reduction for player mapping
   - See which features stand out in each cluster, in order to contextualize Kmeans and clustering results
+
             
 - 🎯 **Shot Chart Visualizer**  
   Explore where your favorite NBA players are taking their shots and how efficient they are across the court.  
