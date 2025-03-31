@@ -12,7 +12,13 @@ from models.matchup_model_rf import train_model
 
 if "model" not in st.session_state:
     with st.spinner("Training model on latest NBA data..."):
-        st.session_state.model = train_model()
+        model, acc, cv_mean, cv_std = train_model()
+        st.session_state.model = model
+        st.session_state.metrics = {
+            "accuracy": acc,
+            "cv_mean": cv_mean,
+            "cv_std": cv_std
+        }
 
 st.title("🏀 NBA Win Probability Dashboard")
 
@@ -194,11 +200,12 @@ st.markdown(
     "This section shows how well the model performs overall — including its accuracy on a test split "
     "and average cross-validation performance across multiple data folds."
 )
-try:
-    with open("model_metrics.txt", "r") as f:
-        st.code(f.read(), language="text")
-except FileNotFoundError:
-    st.warning("Model evaluation metrics not found. Please re-train the model.")
+metrics = st.session_state.get("metrics", {})
+if metrics:
+    st.markdown(f"**Training Accuracy:** {metrics['accuracy']:.3f}")
+    st.markdown(f"**Cross-Validation Accuracy:** {metrics['cv_mean']:.3f} ± {metrics['cv_std']:.3f}")
+else:
+    st.warning("Model metrics not available.")
 
 st.subheader("🔍 Feature Importance")
 st.markdown(

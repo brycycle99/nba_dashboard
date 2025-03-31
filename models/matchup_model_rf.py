@@ -2,7 +2,6 @@
 
 import pandas as pd
 import numpy as np
-import joblib
 from nba_api.stats.endpoints import LeagueGameLog
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split, cross_val_score
@@ -103,4 +102,4 @@ def train_model():
     print(f"✅ Training accuracy: {acc:.3f}")
     print(f"📊 Cross-val: {cv_scores.mean():.3f} ± {cv_scores.std():.3f}")
 
-    return model
+    return model, acc, cv_scores.mean(), cv_scores.std()
