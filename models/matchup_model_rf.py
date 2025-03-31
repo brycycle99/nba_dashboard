@@ -91,13 +91,18 @@ def train_model():
     y = df['WIN']
 
     # Train model
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+    # Train model
     print("🤖 Training Random Forest...")
     model = RandomForestClassifier(n_estimators=200, random_state=42)
-    model.fit(X, y)
+    model.fit(X_train, y_train)
 
-    # Accuracy + CV
-    y_pred = model.predict(X)
-    acc = accuracy_score(y, y_pred)
+    # Evaluate on holdout
+    y_pred = model.predict(X_test)
+    acc = accuracy_score(y_test, y_pred)
+
+    # Cross-validation
     cv_scores = cross_val_score(model, X, y, cv=5, scoring='accuracy')
     print(f"✅ Training accuracy: {acc:.3f}")
     print(f"📊 Cross-val: {cv_scores.mean():.3f} ± {cv_scores.std():.3f}")
