@@ -202,8 +202,8 @@ st.markdown(
 )
 metrics = st.session_state.get("metrics", {})
 if metrics:
-    st.markdown(f"Training Accuracy: {metrics['accuracy']:.3f}")
-    st.markdown(f"Cross-Validation Accuracy: {metrics['cv_mean']:.3f} ± {metrics['cv_std']:.3f}")
+    st.markdown(f"> Training Accuracy: {metrics['accuracy']:.3f}")
+    st.markdown(f"> Cross-Validation Accuracy: {metrics['cv_mean']:.3f} ± {metrics['cv_std']:.3f}")
 else:
     st.warning("Model metrics not available.")
 
