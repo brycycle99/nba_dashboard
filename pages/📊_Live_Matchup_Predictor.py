@@ -12,7 +12,7 @@ from models.matchup_model_rf import train_model
 
 if "model" not in st.session_state:
     with st.spinner("Training model on latest NBA data..."):
-        st.session_state.model = model_train()
+        st.session_state.model = train_model()
 
 st.title("🏀 NBA Win Probability Dashboard")
 
