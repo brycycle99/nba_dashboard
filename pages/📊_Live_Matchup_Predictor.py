@@ -20,7 +20,7 @@ if "model" not in st.session_state:
             "cv_std": cv_std
         }
 
-st.title("🏀 NBA Win Probability Dashboard")
+st.title("NBA Win Probability Dashboard")
 
 @st.cache_data
 def get_teams():

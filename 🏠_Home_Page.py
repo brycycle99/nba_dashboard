@@ -12,12 +12,17 @@ st.markdown("""
   - Choose between PCA, tSNE, and UMAP dimensionality reduction for player mapping
   - See which features stand out in each cluster, in order to contextualize Kmeans and clustering results
 
-            
 - 🎯 **Shot Chart Visualizer**  
   Explore where your favorite NBA players are taking their shots and how efficient they are across the court.  
   - View individual player shot maps  
   - Compare shooting zones (e.g., paint, midrange, 3PT)  
   - Filter by team, season, or game
+  
+- 📊 **Live Matchup Predictor**
+  Predict the outcome of any NBA matchup using live data and machine learning.
+  - Compare two teams' recent performance, rest, and Elo momentum
+  - See win probabilities visualized in real time
+  - Explore which features matter most in each prediction
           
 """)
 
